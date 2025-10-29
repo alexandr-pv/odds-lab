@@ -1,0 +1,6 @@
+echo "🔍 Running Biome formatting..."
+
+# Run Biome to format code (this won't fail on linting errors)
+bun run format
+
+echo "✅ Biome formatting completed! Proceeding with commit..."

@@ -1,0 +1,20 @@
+import { inferAdditionalFields } from 'better-auth/client/plugins';
+import { createAuthClient } from 'better-auth/react';
+
+export const authClient = createAuthClient({
+  plugins: [
+    inferAdditionalFields({
+      user: {
+        roles: {
+          type: 'string[]',
+        },
+      },
+    }),
+  ],
+});
+
+export const { useSession, signIn, signUp, signOut, forgetPassword, resetPassword, getSession } =
+  authClient;
+
+export type Session = typeof authClient.$Infer.Session;
+export type User = typeof authClient.$Infer.Session.user;
